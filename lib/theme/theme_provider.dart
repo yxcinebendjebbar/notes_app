@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:notes_app/theme/theme.dart';
 
 class ThemeProvider with ChangeNotifier {
-  ThemeData _themeData = lightMode;
+  ThemeData _themeData =
+      (ThemeMode.system == ThemeMode.light ? lightMode : darkMode);
 
   ThemeData get themeData => _themeData;
 
@@ -17,7 +18,7 @@ class ThemeProvider with ChangeNotifier {
     if (_themeData == lightMode) {
       themeData = darkMode;
     } else {
-      themeData = darkMode;
+      themeData = lightMode;
     }
   }
 }
